@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+  <title>YouTube thumbnail downloader – HD, 4K, 1080p, HQ</title>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+ 
+
+
+
+
+</head>
+
+<body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+
+  <h1 style="text-align:center;"><u>YouTube thumbnail downloader – HD, 4K, 1080p, HQ</u></h1>
+  </hr>
+  <center>
+
+
+    <!-- Heading & Description -->
+
+    <div dir="ltr" style="text-align: center;" trbidi="on">
+      <p><span style="color: #3d85c6; font-family: arial; font-size: xx-large; font-weight: bold;">Enter Your YouTube
+          URL below</span></p>
+    </div>
+    <!-- onmouseover="GETIMAGES()" onclick="GETIMAGES();GETIMAGES()" -->
+
+    <input class="searchbar" id="yt" oninput="GETIMAGES(this)" placeholder="https://youtu.be/yTDbaXkuvb0;"
+      style="width: 80%;" type="text" value="" />
+    <div class="input-group"><span style="font-size: x-small;">&nbsp;</span></div>
+    <div class="input-group"><span class="input-group-btn">
+
+        <!-- <button class="btn btn-primary" id="videoButton" onmouseover="GETIMAGES();" type="button">Get YouTube
+          Thumbnail</button> -->
+      </span>
+    </div>
+    <!-- style="display: none;" -->
+    <div id="Showdata">
+      Video Thumbnail : Four Small Thumbnails (120x90) <br />
+      <img alt="Small Thumbnail" id="bdea" src="http://img.youtube.com/vi/smd53wN_QWA/mqdefault.jpg"" title="Small Thumbnail" />
+      <img alt="Small Thumbnail" id="b2" src="" title="Small Thumbnail" />
+      <img alt="Small Thumbnail" id="b3" src="" title="Small Thumbnail" />
+      <img alt="Small Thumbnail" id="b4" src="" title="Small Thumbnail" /><br />
+      <p>[ <a download="default.jpg" href="#" id="a1" target="_blank">Download</a> ] / [ Right click Save Image as ] / [
+        Copy the url ]
+        <input class="form-control input-sm down-1" id="s1" onclick="this.select()" readonly="readonly" type="button" />
+      </p>
+      <hr />
+      Video Thumbnail : Medium Quality (320x180) <br />
+      <img alt="Medium Quality" id="b6" src="http://img.youtube.com/vi/smd53wN_QWA/mqdefault.jpg" title="Medium Quality" /><br />
+      <button id="butt">download</button>
+      <br />
+      <p>[ <a download="mqdefault.jpg" href="#" id="a6" target="_blank">Download</a> ] / [ Right click Save Image as ] /
+        [ Copy the url
+        ]
+        <input class="form-control input-sm" id="s6" onclick="this.select()" readonly="readonly" type="text" />
+      </p>
+      <hr />
+      Video Thumbnail : High Quality (480x360) <br />
+      <img alt="High Quality" id="b5" src="http://img.youtube.com/vi/smd53wN_QWA/mqdefault.jpg"" title="High Quality" /><br />
+      <p>[ <a download="hqdefault.jpg" href="#" id="a5">Download</a> ] / [ Right click Save Image as ] / [ Copy the url
+        ]
+        <input class="form-control input-sm" id="s5" onclick="this.select()" readonly="readonly" type="text" />
+      </p>
+      <hr />
+      Video Thumbnail : High Resolution / Definition (1280x720) <br />
+      <img alt="High Resolution" id="b7" src="http://img.youtube.com/vi/smd53wN_QWA/mqdefault.jpg"" title="High Resolution" />
+      <p>[ <a download="maxresdefault.jpg" href="#" id="a7">Download</a> ] / [ Right click Save Image as ] / [ Copy the
+        url ]
+        <input class="form-control input-sm" id="s7" onclick="this.select()" readonly="readonly" type="text" />
+      </p>
+    </div>
+    <div id="iHelp">
+      <br />
+      <h2 class="text-primary head" style="font-weight: bold;"> How to use YouTube Thumbnail Image Downloader</h2>
+      <p style="font-weight: bold;">Step 1 : Go to www.YouTube.com, Search a video.</p>
+      <p style="font-weight: bold;">Step 2 : Copy the URL of the video (Example:
+        https://www.youtube.com/watch?v=3nmnMtbzzjE ).</p>
+      <p style="font-weight: bold;">Step 3 : Paste that URL in the box given above and then click the "Get YouTube
+        Thumbnail" button.</p>
+      <p style="font-weight: bold;">Step 4 : Choose your Thumbnail size and Download it.</p>
+      <p style="font-weight: bold;">Step 5 : Right click Save Image as.
+    </div>
+    </div>
+    </div>
+    </div>
+
+  </center>
+
+  <hr />
+  <center>
+    <!-- Paste Details Here -->
+
+
+
+    <hr />
+  </center>
+
+  <!-- Paste Details Here -->
+
+
+  <br></br>
+  <h1>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+  </h1>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
+    ></script>
+
+  <script type="text/javascript">
+    function saveImageAsJpg(name, adress) {
+      var background = new Image();
+      background.src = "http://i.imgur.com/yf6d9SX.jpg";
+
+      // alert(name);
+      var c = document.getElementById("myCanvas");
+      alert(c);
+      var ctx = c.getContext("2d");
+      alert(ctx);
+      background.onload = function () {
+        ctx.drawImage(background, 0, 0);
+      }
+      var a = document.createElement('a');
+      // var img = document.getElementById("a7"); onclick="saveImageAsJpg('test', 'http://img.youtube.com/vi/ZGycniztgi4/mqdefault.jpg')"
+      // alert(img);
+      //  ctx.drawImage(img, 10, 10);
+      a.href = document.getElementById("myCanvas").toDataURL();
+      a.download = "wrwrwer";
+      // alert(c.toDataURL());
+      //     alert(adress);
+
+      var a = document.createElement('a');
+      a.href = "http://img.youtube.com/vi/ZGycniztgi4/mqdefault.jpg";
+      a.download = "mqdefault.png";
+      //    a.setAttribute('href', 'data:image/jpg;charset=utf-8,' + ("http://img.youtube.com/vi/ZGycniztgi4/mqdefault.jpg"))
+      //    a.setAttribute('download', filename);
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+    function GETIMAGES() {
+      url = document.getElementById('yt').value;
+      if (url.trim() == '') {
+        // alert('Please enter youtube video url');
+        return false;
+      }
+      var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+      var match = url.match(regExp);
+      if (match && match[7].length == 11) {
+        document.getElementById('Showdata').style.display = "block";
+        bdea.src = 'http://img.youtube.com/vi/' + match[7] + '/default.jpg';
+        b2.src = 'http://img.youtube.com/vi/' + match[7] + '/1.jpg';
+        b3.src = 'http://img.youtube.com/vi/' + match[7] + '/2.jpg';
+        b4.src = 'http://img.youtube.com/vi/' + match[7] + '/3.jpg';
+        b5.src = 'http://img.youtube.com/vi/' + match[7] + '/hqdefault.jpg';
+        b6.src = 'http://img.youtube.com/vi/' + match[7] + '/mqdefault.jpg';
+        b7.src = 'http://img.youtube.com/vi/' + match[7] + '/maxresdefault.jpg';
+        a5.href = 'http://img.youtube.com/vi/' + match[7] + '/hqdefault.jpg';
+        a6.href = 'http://img.youtube.com/vi/' + match[7] + '/mqdefault.jpg';
+        a7.href = 'http://img.youtube.com/vi/' + match[7] + '/maxresdefault.jpg';
+        a1.href = 'http://img.youtube.com/vi/' + match[7] + '/default.jpg';
+        document.getElementById("s1").value = document.getElementById('a1').href;
+        document.getElementById("s6").value = document.getElementById('a6').href;
+        document.getElementById("s5").value = document.getElementById('a5').href;
+        document.getElementById("s7").value = document.getElementById('a7').href;
+      }
+      else {
+        document.getElementById('Showdata').style.display = "none";
+        //alert('No YouTube video image found this url, Please try again...');
+        return false;
+      }
+    }
+
+// ******************************downlodeimg//
+    let btnDownload = document.getElementById('butt');
+    let img = document.getElementById('b6');
+
+
+    // Must use FileSaver.js 2.0.2 because 2.0.3 has issues.
+    btnDownload.addEventListener('click', () => {
+      let imagePath = img.getAttribute('src');
+      let fileName = getFileName(imagePath);
+      saveAs(imagePath, fileName);
+    });
+
+    function getFileName(str) {
+      return str.substring(str.lastIndexOf('/') + 1)
+    }
+  </script>
+
+
+</body>
+
+</html>

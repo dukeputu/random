@@ -1,0 +1,143 @@
+<style>
+    .d-btn{
+        width: 95%;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    z-index: 3;
+    background-color: #64c896;
+    box-shadow: 0 1px 1px #ccc;
+    color: #fff !important;
+    border: none;
+    font-size: 30px;
+    padding: 15px;
+    }
+/*     .progress-button {
+    display: inline-block;
+    font-size: 1em;
+
+    text-decoration: none !important;
+    line-height: 1;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    
+    border-radius: 2px;
+    cursor: pointer;
+  
+} */
+</style>
+
+
+<div class="card-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <center><label class="text-weight"><b>Enter YouTube Video Link:</b></label> <input
+                        class="form-control link" name="link" style='width: 70%;' required="" type="txt" id="link">
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="form-download">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <center>
+                        <label class="text-weight"><b>Select Video Format:</b></label>
+                        <select class="form-control formte" id="values" style='width: 70%;' required="">
+                    </center>
+                    <option disabled selected value="selected">
+                        Select Video Formate
+                    </option>
+                    <option value="mp3">
+                        Mp3
+                    </option>
+                    <option value="mp4a">
+                        144 Mp4
+                    </option>
+                    <option value="360">
+                        360 Mp4
+                    </option>
+                    <option value="480">
+                        480 Mp4
+                    </option>
+                    <option value="720">
+                        720 Mp4
+                    </option>
+                    <option value="1080">
+                        1080 Mp4
+                    </option>
+                    <!-- <option value="4k">
+                        4k Mp4
+                    </option>
+                    <option value="8k">
+                        8k Mp4
+                    </option> -->
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group mt-4 download-video" >
+                    <center id="htmlBtn"><button class="d-btn" id="btn" style='width: 30%;'
+                        type="submit">Download Now</button></center>
+                    <!-- <center id="htmlBtn"></center> -->
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- <div id="cart">
+
+</div> -->
+
+<!-- <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' type='text/javascript'></script> -->
+<script type="text/javascript">
+
+    document.getElementById("btn").addEventListener("click", function () {
+        var link = document.getElementById("link").value;
+        var select = document.getElementById('values');
+        var values = select.options[select.selectedIndex].value;
+        if(link === "" || values === "selected"){
+            alert('Please select a value');
+        }
+        else {
+            downloadVideo(link, values);
+        }
+        
+    });
+
+
+    function downloadVideo(link, fromate) {
+        var dBtn = document.getElementById('htmlBtn');
+            dBtn.innerHTML =`<center><iframe style="width:30%;height:60px;border:0;overflow:hidden;" scrolling="no" src="https://loader.to/api/button/?url=${link}=${fromate}Url=http://127.0.0.1:5501/yt-download.html"></iframe></center>`;
+
+
+   /*      var cart = document.getElementById('cart');
+            cart.innerHTML =`<center><iframe style="width:800px;height:250px;border:0;overflow:hidden;" scrolling="no" src="https://loader.to/api/card/?url=${link}&adUrl=http://127.0.0.1:5501/yt-download.html"></iframe></center>`; */
+    }
+     
+    /* $(".click-btn-down").click(function() {
+        var link = $(".link").val();
+        var fromate = $(".formte").children("option:selected").val();
+        // console.log(link);
+        var src = "" + link + "=" + fromate + "";
+        downloadVideo(link, fromate);
+    }); */
+
+    /* function downloadVideo(link, fromate) {
+        $('.download-video').html('<center><iframe style="width:70%;height:60px;border:0;overflow:hidden;" scrolling="no" src="https://loader.to/api/button/?url=' + link + '=' + fromate + '"><\/iframe></center>');
+    } */
+    /* function downloadVideo(link, fromate) {
+        $('.download-video').html('<center><iframe style="width:70%;height:60px;border:0;overflow:hidden;" scrolling="no" src="https://loader.to/api/button/?url=' + link + '=' + fromate + '&color=64c896&adUrl=http://127.0.0.1:5500"><\/iframe></center>');
+    } */
+    /* function downloadVideo(link, fromate) {
+        $('.download-video').html('<center><iframe style="width:230px;height:60px;border:0;overflow:hidden;" scrolling="no" src="https://loader.to/api/button/?url='+ link +' =' fromate'&color=64c896&adUrl=http://127.0.0.1:5500"></iframe></center>');
+    } */
+</script>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="yt.css">
+</head>
+
+<body>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <center>
+                        <p class="input-title"><strong>Paste Below YouTube Video Link
+                            </strong></p>
+                        <input class="form-control link" name="link" required="" type="text" id="link"
+                            placeholder="https://www.youtube.com/watch?v=U9amR_wGDPQ" />
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="form-download">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <center>
+                            <p class="input-title"><strong>Select Video Format
+                                </strong></p>
+                            <select class="form-control formte select" id="values" required="">
+                                <option disabled selected value="selected">
+                                    Select Video Format
+                                </option>
+                                <option value="mp3">
+                                    MP3
+                                </option>
+                                <option value="480">
+                                    480<sup>p</sup>
+                                </option>
+                                <option value="720">
+                                    720<sup>p</sup> -HD
+                                </option>
+                                <option value="1080">
+                                    1080<sup>p</sup> -HD
+                                </option>
+                            </select>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group mt-4 download-video">
+                        <center id="htmlBtn"><button id="btn" style='width: 60%;' type="submit">Download
+                                Now</button></center>
+
+
+                    </div>
+                </div>
+            </div>
+            <div id="dialog-container" class="dialog-container">
+                <!-- <div class="dialog-header"> Press 'Ok' to close this.</div> -->
+                <div id="dialog-body" class="dialog-body dialog-header">
+                </div>
+                <div class="dialog-footer">
+                    <a onclick="CustomAlert.close()"><b>Close</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+
+        document.getElementById("btn").addEventListener("click", function () {
+            var link = document.getElementById("link").value;
+            var select = document.getElementById('values');
+            var values = select.options[select.selectedIndex].value;
+            if (link === "") {
+                // alert('Please select a value');
+                CustomAlert.show('Please Enter a Valid Link')
+            }
+            else if (values === "selected") {
+                CustomAlert.show('Please Select a Valid Format')
+            }
+            else {
+                downloadVideo(link, values);
+            }
+        });
+
+        // const webUrl = 'www.google.com';
+        const webUrl = window.location.href;
+        function downloadVideo(link, fromate) {
+            var dBtn = document.getElementById('htmlBtn');
+            dBtn.innerHTML = `<center><iframe style="width:60%;height:60px;border:0;overflow:hidden;" scrolling="no" src="https://loader.to/api/button/?url=${link}&f=${fromate}&color=06bc13&aUrl=${webUrl}"></iframe></center>`;
+        }
+        // *********************
+        const container = document.getElementById('dialog-container');
+        const CustomAlert = new function (msg) {
+            this.show = function (msg) {
+                let content = document.getElementById('dialog-body');
+                container.style.top = '30%';
+                container.style.opacity = 1;
+                content.textContent = msg;
+            }
+
+            this.close = function () {
+                container.style.top = '-30%';
+                container.style.opacity = 0;
+            }
+        }
+    </script>
+    
+
+</body>
+
+</html>

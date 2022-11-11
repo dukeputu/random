@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        img {
+            width: 100%;
+            border-radius: 10px;
+            border: 3px solid #ff0000;
+        }
+
+        .btn {
+            background-color: blueviolet;
+            color: #fff;
+
+        }
+
+        body {
+            background-color: #f5f8fc;
+        }
+
+        input {
+            border-radius: 4px;
+            color: #797c86;
+        }
+
+        input {
+            outline: 0;
+            font-size: 16px;
+            line-height: 24px;
+            border: 2px solid #06bc13;
+            padding: 15px 25px;
+            box-shadow: 0 4px 12px -2px rgba(107, 117, 161, .5);
+        }
+
+        .top-p-p {
+
+            padding: 0;
+            margin: 0;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .top-p {
+
+            color: #fff;
+            background: #06bc13;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 0;
+
+        }
+
+
+        .alert-box {
+            padding: 15px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            background: #06bc13;
+        }
+
+        .success {
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+            display: none;
+        }
+
+        .failure {
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+            display: none;
+        }
+
+        .warning {
+            color: #8a6d3b;
+            background-color: #fcf8e3;
+            border-color: #faebcc;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="top-p-p">
+            <p class="top-p"> <strong>Enter the link of a YouTube video below</strong>
+            </p>
+        </div>
+
+        <div class="container d-flex justify-content-center">
+            <!-- initDownloadLinks(); -->
+            <input id="yt" oninput="GETIMAGES();" placeholder="https://youtu.be/yTDbaXkuvb0;" type="url"
+                style="width: 80%;" />
+        </div>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+
+                    <p>Full HD</p>
+                    <button id="butt1" class="btn down-btn" onclick="downloadImg('butt1','b7')">download</button>
+                    <button id="copy1" class="btn " onclick="imageCopy('b7')">copy</button>
+                    <img alt=" High Resolution" id="b7" src="https://img.youtube.com/vi/yOhFRZRfSiE/maxresdefault.jpg"
+                        title=" High Resolution" />
+                    <br>
+
+                </div>
+                <div class="col-5">
+
+                    <p>Full HD</p>
+                    <button id="butt2" class="btn down-btn" onclick="downloadImg('butt2','b5')">download</button>
+                    <button id="copy2" class="btn " onclick="imageCopy('b5')">copy</button>
+                    <img alt="High Quality" id="b5" src="https://img.youtube.com/vi/yOhFRZRfSiE/hqdefault.jpg"
+                        title=" High Quality" />
+                    <br />
+
+
+                </div>
+                <div class="col-4">
+                    <p>Full HD</p>
+                    <button id="butt" class="btn down-btn" onclick="downloadImg('butt','b6')">download</button>
+                    <button id="copy3" class="btn " onclick="imageCopy('b6'); copyit(this);">copy</button>
+                    <img alt="Medium Quality" id="b6" src="https://img.youtube.com/vi/yOhFRZRfSiE/mqdefault.jpg"
+                        title="Medium Quality" />
+
+
+                </div>
+                <div class="col-3">
+                    <p>Full HD</p>
+                    <button id="butt3" class="btn down-btn" onclick="downloadImg('butt3','bdea')">download</button>
+
+                    <button id="copy" class="btn copyBtn" onclick="imageCopy('bdea'); copyit(this);">copy </button>
+
+                    <img alt="Small Thumbnail" id="bdea"
+                        src="http://img.youtube.com/vi/smd53wN_QWA/mqdefault.jpg"" title=" Small Thumbnail" />
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/copy-image-clipboard/dist/index.browser.js"></script>
+
+
+
+    <script type="text/javascript">
+
+
+
+
+        function GETIMAGES() {
+            url = document.getElementById('yt').value;
+
+            if (url.trim() == '') {
+
+                return false;
+            }
+            var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+            var match = url.match(regExp);
+            if (match && match[7].length == 11) {
+
+                bdea.src = 'http://img.youtube.com/vi/' + match[7] + '/default.jpg';
+                b5.src = 'http://img.youtube.com/vi/' + match[7] + '/hqdefault.jpg';
+                b6.src = 'http://img.youtube.com/vi/' + match[7] + '/mqdefault.jpg';
+                b7.src = 'http://img.youtube.com/vi/' + match[7] + '/maxresdefault.jpg';
+            }
+            else {
+
+                alert(`Error: ${e.message}`)
+                return true; +6
+            }
+        }
+
+
+
+        const downloadImg = (id1, id2,) => {
+            var btnDownload1 = document.getElementById(id1);
+            var img1 = document.getElementById(id2);
+
+            var imagePath1 = img1.getAttribute('src');
+            var fileName1 = getFileName(imagePath1);
+            saveAs(imagePath1, fileName1);
+
+            function getFileName(str) {
+                return str.substring(str.lastIndexOf('/') + 1)
+            }
+        }
+
+
+
+        const imageCopy = async (imgId) => {
+            const jpegImageElement = document.getElementById(imgId);
+
+            try {
+                const jpegImageSource = jpegImageElement.getAttribute('src')
+                await CopyImageClipboard.copyImageToClipboard(jpegImageSource)
+                // alert('copy image');
+            }
+            catch (e) {
+                alert(`Error: ${e.message}`)
+            }
+        }
+
+
+
+        function copyit(e) {
+            // console.log(e);
+            if (document['body']['createTextRange']) {
+                var ae = document['body']['createTextRange']();
+                ae['moveToElementText'](e);
+                ae['selecopyit']();
+                ae['execCommand']('Copy');
+            } else if (window['getSelection'] && document['createRange']) {
+                var af = e['contentEditable'];
+                var ag = e['readOnly'];
+                e['contentEditable'] = !![];
+                e['readOnly'] = !![];
+                var ah = document['createRange']();
+                ah['selectNodeContents'](e);
+                var ai = window['getSelection']();
+                ai['removeAllRanges']();
+                ai['addRange'](ah);
+                if (e['nodeName'] == 'TEXTAREA' || e['nodeName'] == 'INPUT') e['selecopyit']();
+                if (e['setSelectionRange']) e['setSelectionRange'](0x0, 0xf423f);
+                e['contentEditable'] = af;
+                e['readOnly'] = ag;
+                if (document['queryCommandSupported']('copy')) {
+                    var aj = document['execCommand']('copy');
+                    if (aj) $('body')['append']('<p\x20class=\x22copied\x22><input\x20class=\x22text\x22\x20value=\x22' + $(e)['text']() + '\x22\x20/><span\x20class=\x22copybtn\x22>✔\x20Copied\x20!</span></p>'), setTimeout(function () {
+                        $('.copied')['remove']();
+                    }, 0x3e8);
+                    else $('body')['append']('<p\x20class=\x22copied\x22><input\x20class=\x22text\x22\x20value=\x22Press\x20CTRL+C\x20to\x20copy\x22\x20/></p>'), setTimeout(function () {
+                        $('.copied')['remove']();
+                    }, 0x3e8);
+                } else {
+                    if (!navigator['userAgent']['match'](/ipad|ipod|iphone|android|silk/i)) $('body')['append']('<p\x20class=\x22copied\x22><input\x20class=\x22text\x22\x20value=\x22Press\x20CTRL+C\x20to\x20copy\x22\x20/></p>'), setTimeout(function () {
+                        $('.copied')['remove']();
+                    }, 0x3e8);
+                }
+            }
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
